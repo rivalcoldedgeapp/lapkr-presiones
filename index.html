@@ -618,6 +618,201 @@
     -moz-appearance: textfield;
   }
   input[type="number"].vida-input:focus { outline: none; border-color: #2D7FF9; }
+
+  /* ─────── Tabs ─────── */
+  .tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 12px;
+    background: #111111;
+    border: 1px solid #1E293B;
+    border-radius: 8px;
+    padding: 4px;
+  }
+  .tab {
+    flex: 1;
+    background: transparent;
+    color: #94A3B8;
+    border: none;
+    padding: 9px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .tab.active {
+    background: #2D7FF9;
+    color: #FFFFFF;
+    font-weight: 600;
+  }
+
+  /* ─────── Historial ─────── */
+  .history-filters {
+    background: #111111;
+    border: 1px solid #1E293B;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+  }
+  .history-filters select {
+    background: #0A0A0A;
+    border: 1px solid #1E293B;
+    color: #E5E7EB;
+    padding: 7px 8px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-family: inherit;
+    width: 100%;
+  }
+  .history-filters select:focus { outline: none; border-color: #2D7FF9; }
+  .history-filters .field-label-mini {
+    font-family: monospace;
+    font-size: 9px;
+    color: #94A3B8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+    display: block;
+  }
+
+  .history-empty {
+    background: #111111;
+    border: 1px dashed #1E293B;
+    border-radius: 8px;
+    padding: 30px 16px;
+    text-align: center;
+    color: #6B7280;
+    font-size: 13px;
+  }
+  .history-empty .emoji { font-size: 32px; opacity: 0.4; margin-bottom: 6px; }
+
+  .session-card {
+    background: #111111;
+    border: 1px solid #1E293B;
+    border-radius: 8px;
+    padding: 11px 12px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+  .session-card:hover { border-color: #2D7FF9; }
+  .session-card .sc-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+  .session-card .sc-num {
+    background: #2D7FF9;
+    color: #FFF;
+    font-weight: 700;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+  .session-card .sc-piloto {
+    font-weight: 600;
+    color: #FFF;
+    font-size: 14px;
+    flex: 1;
+  }
+  .session-card .sc-tipo {
+    background: #1E293B;
+    color: #94A3B8;
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-family: monospace;
+  }
+  .session-card .sc-meta {
+    font-size: 11px;
+    color: #94A3B8;
+    font-family: monospace;
+    margin-bottom: 6px;
+  }
+  .session-card .sc-meta .sep { margin: 0 6px; color: #334155; }
+  .session-card .sc-press {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    font-family: monospace;
+    font-size: 10px;
+    color: #94A3B8;
+  }
+  .session-card .sc-press .pcell {
+    background: #0A0A0A;
+    border: 1px solid #1E293B;
+    border-radius: 4px;
+    padding: 4px 6px;
+    text-align: center;
+  }
+  .session-card .sc-press .pcell .lbl { color: #6B7280; font-size: 9px; }
+  .session-card .sc-press .pcell .val { color: #E5E7EB; font-weight: 600; }
+  .session-card .sc-press .pcell.warm .val { color: #F59E0B; }
+
+  /* ─────── Detail modal ─────── */
+  .detail-section {
+    background: #0A0A0A;
+    border: 1px solid #1E293B;
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+  }
+  .detail-section .ds-label {
+    font-family: monospace;
+    font-size: 9px;
+    color: #94A3B8;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
+  }
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 0;
+    font-size: 12px;
+  }
+  .detail-row .lbl { color: #94A3B8; font-family: monospace; font-size: 10px; }
+  .detail-row .val { color: #E5E7EB; font-weight: 500; }
+  .detail-press-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin-top: 6px;
+  }
+  .detail-press-cell {
+    background: #111111;
+    border: 1px solid #1E293B;
+    border-radius: 5px;
+    padding: 6px 8px;
+    font-family: monospace;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+  }
+  .detail-press-cell .pos { color: #94A3B8; }
+  .detail-press-cell .num { color: #FFF; font-weight: 700; }
+  .detail-press-cell.warm .num { color: #F59E0B; }
+  .detail-obs {
+    color: #E5E7EB;
+    font-size: 12px;
+    line-height: 1.5;
+    background: rgba(45,127,249,0.05);
+    border-left: 2px solid #2D7FF9;
+    padding: 8px 10px;
+    border-radius: 4px;
+    font-style: italic;
+  }
 </style>
 </head>
 <body>
@@ -685,8 +880,19 @@
   </div>
 
   <div class="help">
-    <strong>Tap en cada llanta para capturar.</strong> Selecciona FRÍO antes de la sesión, CALIENTE apenas baje del kart. Al final, click "Enviar a Francisco" copia el reporte para WhatsApp.
+    <strong>Tap en cada llanta para capturar.</strong> Llena FRÍO antes de salir, CALIENTE al bajar. Al final, "Guardar sesión" la deja en el historial para que Francisco la consulte y la lleve a telemetría.
   </div>
+
+  <!-- ─────── TABS ─────── -->
+  <div class="tabs">
+    <button type="button" class="tab active" data-tab="new" onclick="setTab('new')">📝 Nueva sesión</button>
+    <button type="button" class="tab" data-tab="history" onclick="setTab('history')">📚 Historial</button>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- TAB: NUEVA SESIÓN                                             -->
+  <!-- ============================================================ -->
+  <div id="tab-new">
 
   <!-- ─────── Sesión info ─────── -->
   <div class="card">
@@ -713,6 +919,15 @@
           <option value="S7">S7</option>
           <option value="S8">S8</option>
         </select>
+      </div>
+    </div>
+    <div style="margin-bottom: 10px;">
+      <label class="field-label">Pista</label>
+      <div class="select-with-add">
+        <select id="pista">
+          <option value="">— sel —</option>
+        </select>
+        <button type="button" class="btn-add" onclick="openAddItemModal('pista')" title="Agregar pista">+</button>
       </div>
     </div>
     <label class="field-label">Tipo de sesión</label>
@@ -847,6 +1062,39 @@
     <input type="text" id="obs" placeholder="ej: TD se calentó más de lo normal">
   </div>
 
+  </div> <!-- /tab-new -->
+
+  <!-- ============================================================ -->
+  <!-- TAB: HISTORIAL                                                -->
+  <!-- ============================================================ -->
+  <div id="tab-history" style="display:none;">
+    <div class="history-filters">
+      <div>
+        <span class="field-label-mini">Piloto</span>
+        <select id="filter-piloto" onchange="renderHistory()">
+          <option value="">Todos</option>
+        </select>
+      </div>
+      <div>
+        <span class="field-label-mini">Pista</span>
+        <select id="filter-pista" onchange="renderHistory()">
+          <option value="">Todas</option>
+        </select>
+      </div>
+      <div>
+        <span class="field-label-mini">Periodo</span>
+        <select id="filter-periodo" onchange="renderHistory()">
+          <option value="all">Todas</option>
+          <option value="today">Hoy</option>
+          <option value="week">Esta semana</option>
+          <option value="month">Este mes</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="history-list"></div>
+  </div>
+
 </div>
 
 <!-- ─────── Number Pad Modal ─────── -->
@@ -884,9 +1132,10 @@
 </div>
 
 <!-- Action bar -->
-<div class="actions">
+<div class="actions" id="actions-bar-new">
   <button type="button" class="btn btn-secondary" id="btn-clear">Limpiar</button>
-  <button type="button" class="btn btn-primary" id="btn-send">📲 Enviar a Francisco</button>
+  <button type="button" class="btn btn-secondary" id="btn-send">📋 Copiar</button>
+  <button type="button" class="btn btn-primary" id="btn-save-session">💾 Guardar sesión</button>
 </div>
 
 <!-- ─────── ADD ITEM MODAL (piloto / compuesto) ─────── -->
@@ -940,6 +1189,21 @@
     <div id="team-members-list"></div>
     <div class="modal-actions">
       <button class="modal-btn" onclick="closeTeamModal()">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─────── SESSION DETAIL MODAL ─────── -->
+<div class="modal-overlay" id="session-detail-modal" onclick="if(event.target===this)closeSessionDetailModal()">
+  <div class="modal-box" style="max-width:500px;">
+    <h2 id="sd-title">Detalle de sesión</h2>
+    <div id="sd-body"></div>
+    <div class="modal-actions" style="flex-wrap:wrap;">
+      <button class="modal-btn" onclick="closeSessionDetailModal()">Cerrar</button>
+      <button class="modal-btn danger" id="sd-delete-btn" onclick="deleteCurrentSession()" style="display:none;">🗑️ Eliminar</button>
+      <button class="modal-btn" id="sd-edit-btn" onclick="editCurrentSession()" style="display:none;">✏️ Editar</button>
+      <button class="modal-btn" onclick="copySessionAsWhatsApp()">📋 WhatsApp</button>
+      <button class="modal-btn primary" onclick="copySessionAsClaude()">🤖 Para Claude</button>
     </div>
   </div>
 </div>
@@ -1001,9 +1265,14 @@ let state = {
   // Remote data (synced from Firestore)
   pilotos: [],          // [{id, nombre}]
   compuestos: [],       // [{id, nombre}]
+  pistas: [],           // [{id, nombre}]
+  sessions: [],         // [{id, piloto, num_sesion, tipo, fecha, hora, pista, ...}]
   proposals: [],        // [{id, kind:'piloto'|'compuesto', value, proposedBy, proposedAt}]
   team: {},             // { email: {name, addedAt} }
-  addItemKind: null     // 'piloto' or 'compuesto' when modal open
+  addItemKind: null,    // 'piloto' or 'compuesto' or 'pista' when modal open
+  currentTab: 'new',    // 'new' or 'history'
+  editingSessionId: null,  // when editing existing session
+  currentDetailSessionId: null  // when detail modal open
 };
 
 // Auth state
@@ -1014,12 +1283,17 @@ window.workspaceOwnerId = null;
 
 const DEFAULT_PILOTOS = ['Jeshua', 'Ricardo'];
 const DEFAULT_COMPUESTOS = ['SM2 Telmex', 'Evinco SK-M', 'MG Rojas', 'Vega Blancas', 'Bridgestone', 'MG SW lluvia'];
+const DEFAULT_PISTAS = ['KBR — Bosque Real', 'KSE — Sierra Esmeralda', 'AIMA Puebla'];
+const MAX_SESSIONS = 30;
+const EDIT_WINDOW_MS = 10 * 60 * 1000;  // 10 min
 
 // Firestore unsubscribers
 let unsubsFb = [];
 // Maps mirroring snapshots
 let pilotosMap = {};
 let compuestosMap = {};
+let pistasMap = {};
+let sessionsMap = {};
 let proposalsMap = {};
 
 const TIRES = ['DI', 'DD', 'TI', 'TD'];
@@ -1326,10 +1600,13 @@ function loadDraft() {
 document.getElementById('btn-clear').addEventListener('click', () => {
   if (!confirm('¿Limpiar todos los datos? Se perderá lo capturado.')) return;
   state.pressures = { frio: {}, caliente: {} };
+  state.editingSessionId = null;
   document.querySelectorAll('input').forEach(i => i.value = '');
-  document.querySelectorAll('select').forEach(s => { if (s.id !== 'piloto') s.selectedIndex = 0; });
+  document.querySelectorAll('select').forEach(s => s.selectedIndex = 0);
   document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
   localStorage.removeItem('lapkr_pressures_draft');
+  const saveBtn = document.getElementById('btn-save-session');
+  if (saveBtn) saveBtn.textContent = '💾 Guardar sesión';
   renderTires();
   showToast('✅ Limpiado');
 });
@@ -1443,7 +1720,7 @@ document.getElementById('btn-send').addEventListener('click', async () => {
     btn.textContent = '✅ Copiado';
     setTimeout(() => {
       btn.classList.remove('success');
-      btn.textContent = '📲 Enviar a Francisco';
+      btn.textContent = '📋 Copiar';
     }, 3000);
   } catch (err) {
     // Fallback
@@ -1457,6 +1734,18 @@ document.getElementById('btn-send').addEventListener('click', async () => {
     showToast('✅ Reporte copiado');
   }
 });
+
+// Save session to Firestore (the new flow)
+document.addEventListener('DOMContentLoaded', () => {
+  // Attach handler after DOM ready in case button doesn't exist yet
+});
+// Inline attachment (script is at end of body, so DOM is ready)
+const saveBtnEl = document.getElementById('btn-save-session');
+if (saveBtnEl) {
+  saveBtnEl.addEventListener('click', async () => {
+    await saveSessionToFirestore();
+  });
+}
 
 function saveAsLastSession() {
   try {
@@ -1559,10 +1848,11 @@ async function finishLogin(user) {
   showApp();
   setSyncStatus('syncing', 'Cargando...');
   await subscribeToFirestore();
-  // After first sync, if admin and there are no pilotos/compuestos seeded yet, seed defaults
+  // After first sync, if admin and there are no pilotos/compuestos/pistas seeded yet, seed defaults
   if (window.currentUserRole === 'admin' &&
       Object.keys(pilotosMap).length === 0 &&
-      Object.keys(compuestosMap).length === 0) {
+      Object.keys(compuestosMap).length === 0 &&
+      Object.keys(pistasMap).length === 0) {
     console.log('[Presiones] Seeding defaults');
     await seedDefaults();
   }
@@ -1581,6 +1871,12 @@ function pilotosCol() {
 function compuestosCol() {
   return window.firebaseCollection(window.firebaseDb, 'lapkr-presiones', 'shared', 'compuestos');
 }
+function pistasCol() {
+  return window.firebaseCollection(window.firebaseDb, 'lapkr-presiones', 'shared', 'pistas');
+}
+function sessionsCol() {
+  return window.firebaseCollection(window.firebaseDb, 'lapkr-presiones', 'shared', 'sessions');
+}
 function proposalsCol() {
   return window.firebaseCollection(window.firebaseDb, 'lapkr-presiones', 'shared', 'proposals');
 }
@@ -1589,6 +1885,12 @@ function pilotoDoc(id) {
 }
 function compuestoDoc(id) {
   return window.firebaseDoc(window.firebaseDb, 'lapkr-presiones', 'shared', 'compuestos', id);
+}
+function pistaDoc(id) {
+  return window.firebaseDoc(window.firebaseDb, 'lapkr-presiones', 'shared', 'pistas', id);
+}
+function sessionDoc(id) {
+  return window.firebaseDoc(window.firebaseDb, 'lapkr-presiones', 'shared', 'sessions', id);
 }
 function proposalDoc(id) {
   return window.firebaseDoc(window.firebaseDb, 'lapkr-presiones', 'shared', 'proposals', id);
@@ -1632,6 +1934,31 @@ async function subscribeToFirestore() {
   }, (err) => console.error('[Presiones] Compuestos error:', err));
   unsubsFb.push(cUnsub);
 
+  // Pistas
+  const pstUnsub = window.firebaseOnSnapshot(pistasCol(), (snap) => {
+    snap.docChanges().forEach(ch => {
+      const d = ch.doc.data();
+      if (ch.type === 'removed') delete pistasMap[ch.doc.id];
+      else pistasMap[ch.doc.id] = { ...d, id: ch.doc.id };
+    });
+    rebuildState();
+    refreshSelects();
+    if (state.currentTab === 'history') renderHistory();
+  }, (err) => console.error('[Presiones] Pistas error:', err));
+  unsubsFb.push(pstUnsub);
+
+  // Sessions
+  const sesUnsub = window.firebaseOnSnapshot(sessionsCol(), (snap) => {
+    snap.docChanges().forEach(ch => {
+      const d = ch.doc.data();
+      if (ch.type === 'removed') delete sessionsMap[ch.doc.id];
+      else sessionsMap[ch.doc.id] = { ...d, id: ch.doc.id };
+    });
+    rebuildState();
+    if (state.currentTab === 'history') renderHistory();
+  }, (err) => console.error('[Presiones] Sessions error:', err));
+  unsubsFb.push(sesUnsub);
+
   // Proposals
   const prUnsub = window.firebaseOnSnapshot(proposalsCol(), (snap) => {
     snap.docChanges().forEach(ch => {
@@ -1641,7 +1968,6 @@ async function subscribeToFirestore() {
     });
     rebuildState();
     refreshPendingBanner();
-    // If proposals modal is open, refresh its list
     if (document.getElementById('proposals-modal').classList.contains('open')) {
       renderProposalsList();
     }
@@ -1655,6 +1981,8 @@ async function subscribeToFirestore() {
 function rebuildState() {
   state.pilotos = Object.values(pilotosMap).sort((a, b) => (a.nombre || '').localeCompare(b.nombre || ''));
   state.compuestos = Object.values(compuestosMap).sort((a, b) => (a.nombre || '').localeCompare(b.nombre || ''));
+  state.pistas = Object.values(pistasMap).sort((a, b) => (a.nombre || '').localeCompare(b.nombre || ''));
+  state.sessions = Object.values(sessionsMap).sort((a, b) => (b.createdAt || '').localeCompare(a.createdAt || ''));
   state.proposals = Object.values(proposalsMap).sort((a, b) => (b.proposedAt || '').localeCompare(a.proposedAt || ''));
 }
 
@@ -1679,6 +2007,10 @@ async function seedDefaults() {
       const id = 'cp' + i + '_seed';
       batch.set(compuestoDoc(id), { id, nombre });
     });
+    DEFAULT_PISTAS.forEach((nombre, i) => {
+      const id = 'pst' + i + '_seed';
+      batch.set(pistaDoc(id), { id, nombre });
+    });
     await batch.commit();
     setSyncStatus('', 'Sincronizado');
   } catch (e) {
@@ -1690,6 +2022,9 @@ async function seedDefaults() {
 function refreshSelects() {
   const pilotoSel = document.getElementById('piloto');
   const compSel = document.getElementById('compuesto');
+  const pistaSel = document.getElementById('pista');
+  const filterPiloto = document.getElementById('filter-piloto');
+  const filterPista = document.getElementById('filter-pista');
   if (pilotoSel) {
     const prev = pilotoSel.value;
     pilotoSel.innerHTML = '<option value="">— sel —</option>' +
@@ -1701,6 +2036,24 @@ function refreshSelects() {
     compSel.innerHTML = '<option value="">— sel —</option>' +
       state.compuestos.map(c => `<option value="${escAttr(c.nombre)}">${escHtml(c.nombre)}</option>`).join('');
     if (prev && state.compuestos.find(c => c.nombre === prev)) compSel.value = prev;
+  }
+  if (pistaSel) {
+    const prev = pistaSel.value;
+    pistaSel.innerHTML = '<option value="">— sel —</option>' +
+      state.pistas.map(p => `<option value="${escAttr(p.nombre)}">${escHtml(p.nombre)}</option>`).join('');
+    if (prev && state.pistas.find(p => p.nombre === prev)) pistaSel.value = prev;
+  }
+  if (filterPiloto) {
+    const prev = filterPiloto.value;
+    filterPiloto.innerHTML = '<option value="">Todos</option>' +
+      state.pilotos.map(p => `<option value="${escAttr(p.nombre)}">${escHtml(p.nombre)}</option>`).join('');
+    if (prev) filterPiloto.value = prev;
+  }
+  if (filterPista) {
+    const prev = filterPista.value;
+    filterPista.innerHTML = '<option value="">Todas</option>' +
+      state.pistas.map(p => `<option value="${escAttr(p.nombre)}">${escHtml(p.nombre)}</option>`).join('');
+    if (prev) filterPista.value = prev;
   }
 }
 
@@ -1736,13 +2089,21 @@ function refreshPendingBanner() {
 function openAddItemModal(kind) {
   state.addItemKind = kind;
   const isAdmin = window.currentUserRole === 'admin';
-  document.getElementById('add-item-title').textContent = (isAdmin ? 'Agregar ' : 'Proponer ') + (kind === 'piloto' ? 'piloto' : 'compuesto');
-  document.getElementById('add-item-hint').innerHTML = isAdmin
-    ? '💡 Como admin, se agregará directamente para todo el equipo.'
-    : '💡 Como worker, esto queda como propuesta. El admin tendrá que aprobarla antes de que aparezca en el dropdown.';
+  // Pista: no requiere aprobación (cualquiera agrega directo)
+  const isPista = kind === 'pista';
+  const kindLabel = kind === 'piloto' ? 'piloto' : (kind === 'pista' ? 'pista' : 'compuesto');
+  const needsProposal = !isAdmin && !isPista;
+  document.getElementById('add-item-title').textContent = (needsProposal ? 'Proponer ' : 'Agregar ') + kindLabel;
+  if (isPista) {
+    document.getElementById('add-item-hint').innerHTML = '💡 Las pistas las puede agregar cualquier miembro del equipo, sin aprobación.';
+  } else if (needsProposal) {
+    document.getElementById('add-item-hint').innerHTML = '💡 Como worker, esto queda como propuesta. El admin tendrá que aprobarla antes de que aparezca en el dropdown.';
+  } else {
+    document.getElementById('add-item-hint').innerHTML = '💡 Como admin, se agregará directamente para todo el equipo.';
+  }
   document.getElementById('add-item-input').value = '';
-  document.getElementById('add-item-input').placeholder = kind === 'piloto' ? 'Ej: Francisco' : 'Ej: MG Yellow';
-  document.getElementById('add-item-submit').textContent = isAdmin ? 'Agregar' : '📋 Proponer';
+  document.getElementById('add-item-input').placeholder = kind === 'piloto' ? 'Ej: Francisco' : (kind === 'pista' ? 'Ej: AIMA Puebla' : 'Ej: MG Yellow');
+  document.getElementById('add-item-submit').textContent = needsProposal ? '📋 Proponer' : 'Agregar';
   document.getElementById('add-item-modal').classList.add('open');
   setTimeout(() => document.getElementById('add-item-input').focus(), 50);
 }
@@ -1756,26 +2117,30 @@ async function submitAddItem() {
   const kind = state.addItemKind;
   if (!kind) return;
   // Check duplicate (case-insensitive)
-  const existingList = kind === 'piloto' ? state.pilotos : state.compuestos;
+  const existingList = kind === 'piloto' ? state.pilotos : (kind === 'pista' ? state.pistas : state.compuestos);
   if (existingList.find(x => (x.nombre || '').toLowerCase() === value.toLowerCase())) {
     showToast('Ya existe: ' + value);
     return;
   }
-  // Check duplicate in pending proposals
-  if (state.proposals.find(p => p.kind === kind && (p.value || '').toLowerCase() === value.toLowerCase())) {
+  const isAdmin = window.currentUserRole === 'admin';
+  const isPista = kind === 'pista';
+  const needsProposal = !isAdmin && !isPista;
+  // For non-pista, also check pending proposals
+  if (!isPista && state.proposals.find(p => p.kind === kind && (p.value || '').toLowerCase() === value.toLowerCase())) {
     showToast('Ya hay una propuesta pendiente con ese nombre');
     return;
   }
-  const isAdmin = window.currentUserRole === 'admin';
   try {
-    if (isAdmin) {
-      const id = (kind === 'piloto' ? 'pi' : 'cp') + Date.now() + '_' + Math.random().toString(36).substring(2, 6);
-      const ref = kind === 'piloto' ? pilotoDoc(id) : compuestoDoc(id);
+    if (!needsProposal) {
+      // Direct add (admin for any kind, or anyone for pista)
+      const prefix = kind === 'piloto' ? 'pi' : (kind === 'pista' ? 'pst' : 'cp');
+      const id = prefix + Date.now() + '_' + Math.random().toString(36).substring(2, 6);
+      const ref = kind === 'piloto' ? pilotoDoc(id) : (kind === 'pista' ? pistaDoc(id) : compuestoDoc(id));
       await window.firebaseSetDoc(ref, { id, nombre: value });
       showToast('✓ Agregado: ' + value);
       // Auto-select it
       setTimeout(() => {
-        const sel = document.getElementById(kind === 'piloto' ? 'piloto' : 'compuesto');
+        const sel = document.getElementById(kind === 'piloto' ? 'piloto' : (kind === 'pista' ? 'pista' : 'compuesto'));
         if (sel) sel.value = value;
         autoSave();
       }, 300);
@@ -1931,6 +2296,422 @@ async function removeTeamMember(email) {
 }
 
 // ============================================================
+// TABS
+// ============================================================
+function setTab(tab) {
+  state.currentTab = tab;
+  document.querySelectorAll('.tab').forEach(el => {
+    el.classList.toggle('active', el.dataset.tab === tab);
+  });
+  document.getElementById('tab-new').style.display = tab === 'new' ? '' : 'none';
+  document.getElementById('tab-history').style.display = tab === 'history' ? '' : 'none';
+  // Hide actions bar in history (it belongs to the new-session form)
+  const actionsBar = document.getElementById('actions-bar-new');
+  if (actionsBar) actionsBar.style.display = tab === 'new' ? '' : 'none';
+  if (tab === 'history') renderHistory();
+}
+
+// ============================================================
+// HISTORIAL
+// ============================================================
+function renderHistory() {
+  const cont = document.getElementById('history-list');
+  if (!cont) return;
+  const filterPiloto = document.getElementById('filter-piloto')?.value || '';
+  const filterPista = document.getElementById('filter-pista')?.value || '';
+  const filterPeriodo = document.getElementById('filter-periodo')?.value || 'all';
+  const now = new Date();
+  const todayStr = now.toISOString().substring(0, 10);
+  let cutoffDate = null;
+  if (filterPeriodo === 'today') {
+    cutoffDate = todayStr;
+  } else if (filterPeriodo === 'week') {
+    const d = new Date(); d.setDate(d.getDate() - 7);
+    cutoffDate = d.toISOString().substring(0, 10);
+  } else if (filterPeriodo === 'month') {
+    const d = new Date(); d.setMonth(d.getMonth() - 1);
+    cutoffDate = d.toISOString().substring(0, 10);
+  }
+  let filtered = state.sessions.slice();
+  if (filterPiloto) filtered = filtered.filter(s => s.piloto === filterPiloto);
+  if (filterPista) filtered = filtered.filter(s => s.pista === filterPista);
+  if (cutoffDate) {
+    if (filterPeriodo === 'today') {
+      filtered = filtered.filter(s => (s.fecha || '') === todayStr);
+    } else {
+      filtered = filtered.filter(s => (s.fecha || '') >= cutoffDate);
+    }
+  }
+  if (filtered.length === 0) {
+    cont.innerHTML = `
+      <div class="history-empty">
+        <div class="emoji">📚</div>
+        <div>Sin sesiones registradas${(filterPiloto || filterPista || cutoffDate) ? ' con esos filtros' : ''}</div>
+        ${(filterPiloto || filterPista || cutoffDate) ? '<div style="font-size:11px; margin-top:6px;">Prueba con filtros distintos</div>' : '<div style="font-size:11px; margin-top:6px;">Captura una en "Nueva sesión" y aparecerá aquí</div>'}
+      </div>
+    `;
+    return;
+  }
+  cont.innerHTML = filtered.map(s => {
+    const f = s.pressures?.frio || {};
+    const c = s.pressures?.caliente || {};
+    const fechaDisp = formatHistDate(s.fecha);
+    return `
+      <div class="session-card" onclick="openSessionDetail('${escAttr(s.id)}')">
+        <div class="sc-head">
+          <span class="sc-num">${escHtml(s.num_sesion || '?')}</span>
+          <span class="sc-piloto">${escHtml(s.piloto || '—')}</span>
+          ${s.tipo ? `<span class="sc-tipo">${escHtml(s.tipo)}</span>` : ''}
+        </div>
+        <div class="sc-meta">
+          ${s.pista ? escHtml(s.pista) + '<span class="sep">·</span>' : ''}
+          ${fechaDisp}
+          ${s.hora ? '<span class="sep">·</span>' + escHtml(s.hora) : ''}
+        </div>
+        <div class="sc-press">
+          <div class="pcell"><div class="lbl">DI ❄</div><div class="val">${fmtPress(f.DI)}</div></div>
+          <div class="pcell"><div class="lbl">DD ❄</div><div class="val">${fmtPress(f.DD)}</div></div>
+          <div class="pcell"><div class="lbl">TI ❄</div><div class="val">${fmtPress(f.TI)}</div></div>
+          <div class="pcell"><div class="lbl">TD ❄</div><div class="val">${fmtPress(f.TD)}</div></div>
+          <div class="pcell warm"><div class="lbl">DI 🔥</div><div class="val">${fmtPress(c.DI)}</div></div>
+          <div class="pcell warm"><div class="lbl">DD 🔥</div><div class="val">${fmtPress(c.DD)}</div></div>
+          <div class="pcell warm"><div class="lbl">TI 🔥</div><div class="val">${fmtPress(c.TI)}</div></div>
+          <div class="pcell warm"><div class="lbl">TD 🔥</div><div class="val">${fmtPress(c.TD)}</div></div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function fmtPress(v) {
+  if (v == null || v === '') return '—';
+  return Number(v).toFixed(1);
+}
+function formatHistDate(s) {
+  if (!s) return '—';
+  const today = new Date().toISOString().substring(0, 10);
+  if (s === today) return 'Hoy';
+  const d = new Date(s + 'T12:00:00');
+  if (isNaN(d.getTime())) return s;
+  return d.toLocaleDateString('es-MX', { day: '2-digit', month: 'short' });
+}
+
+// ============================================================
+// GUARDAR SESIÓN
+// ============================================================
+async function saveSessionToFirestore() {
+  const piloto = document.getElementById('piloto').value;
+  const num_sesion = document.getElementById('num_sesion').value;
+  const tipoEl = document.querySelector('.pills .pill.active');
+  const tipo = tipoEl?.dataset.value || '';
+  const pista = document.getElementById('pista').value;
+  const compuesto = document.getElementById('compuesto').value;
+  const vida = document.getElementById('vida').value;
+  const obs = document.getElementById('obs').value;
+  const tempLlanta = document.getElementById('temp_llanta')?.value || '';
+
+  // Validations
+  if (!piloto) { showToast('⚠️ Falta piloto', 'warning'); return; }
+  if (!num_sesion) { showToast('⚠️ Falta número de sesión', 'warning'); return; }
+  if (!pista) { showToast('⚠️ Falta pista', 'warning'); return; }
+
+  const now = new Date();
+  const fecha = now.toISOString().substring(0, 10);
+  const hora = now.toTimeString().substring(0, 5);
+
+  // Duplicate check: same piloto + num_sesion + fecha
+  // Skip if editing the same session
+  const dup = state.sessions.find(s =>
+    s.piloto === piloto &&
+    s.num_sesion === num_sesion &&
+    s.fecha === fecha &&
+    s.id !== state.editingSessionId
+  );
+  if (dup) {
+    showToast(`⚠️ Ya hay una ${num_sesion} de ${piloto} hoy. Cambia el # de sesión o edítala desde Historial.`, 'warning');
+    return;
+  }
+
+  const sessionData = {
+    piloto, num_sesion, tipo, pista, compuesto, vida, obs, tempLlanta,
+    fecha, hora,
+    pressures: state.pressures,
+    author: window.currentUserName || 'Unknown',
+    authorEmail: window.currentUser?.email || ''
+  };
+
+  try {
+    setSyncStatus('syncing', 'Guardando...');
+    let id;
+    if (state.editingSessionId) {
+      // Update existing
+      id = state.editingSessionId;
+      const existing = state.sessions.find(s => s.id === id);
+      sessionData.id = id;
+      sessionData.createdAt = existing?.createdAt || now.toISOString();
+      sessionData.updatedAt = now.toISOString();
+      sessionData.updatedBy = window.currentUserName || 'Unknown';
+      await window.firebaseSetDoc(sessionDoc(id), sessionData, { merge: true });
+      showToast('✓ Sesión actualizada');
+      state.editingSessionId = null;
+      const saveBtnReset = document.getElementById('btn-save-session');
+      if (saveBtnReset) saveBtnReset.textContent = '💾 Guardar sesión';
+    } else {
+      id = 'ses' + Date.now() + '_' + Math.random().toString(36).substring(2, 6);
+      sessionData.id = id;
+      sessionData.createdAt = now.toISOString();
+      await window.firebaseSetDoc(sessionDoc(id), sessionData);
+      showToast('✓ Sesión guardada');
+      // Auto-cleanup: keep only MAX_SESSIONS most recent
+      await cleanupOldSessions();
+    }
+    setSyncStatus('', 'Sincronizado');
+    // Also copy to clipboard as a bonus
+    const report = buildReport();
+    try { await navigator.clipboard.writeText(report); } catch (e) {}
+    // Switch to history tab so user sees the result
+    setTimeout(() => setTab('history'), 800);
+  } catch (e) {
+    console.error('[Presiones] save session failed:', e);
+    setSyncStatus('error', 'Error sync');
+    showToast('Error al guardar: ' + e.message, 'warning');
+  }
+}
+
+async function cleanupOldSessions() {
+  if (state.sessions.length <= MAX_SESSIONS) return;
+  const sorted = state.sessions.slice().sort((a, b) => (b.createdAt || '').localeCompare(a.createdAt || ''));
+  const toDelete = sorted.slice(MAX_SESSIONS);
+  if (toDelete.length === 0) return;
+  try {
+    const batch = window.firebaseWriteBatch(window.firebaseDb);
+    toDelete.forEach(s => batch.delete(sessionDoc(s.id)));
+    await batch.commit();
+    console.log('[Presiones] Cleanup: removed ' + toDelete.length + ' old sessions');
+  } catch (e) {
+    console.error('[Presiones] cleanup failed:', e);
+  }
+}
+
+// ============================================================
+// DETALLE DE SESIÓN (modal)
+// ============================================================
+function openSessionDetail(id) {
+  const s = state.sessions.find(x => x.id === id);
+  if (!s) return;
+  state.currentDetailSessionId = id;
+  document.getElementById('sd-title').textContent = `${s.num_sesion || '?'} · ${s.piloto || '—'}`;
+  const f = s.pressures?.frio || {};
+  const c = s.pressures?.caliente || {};
+  const fechaDisp = formatHistDate(s.fecha) + (s.hora ? ' · ' + s.hora : '');
+  const ageMs = Date.now() - new Date(s.createdAt || 0).getTime();
+  const isAuthor = (s.authorEmail || '').toLowerCase() === (window.currentUser?.email || '').toLowerCase();
+  const canEdit = window.currentUserRole === 'admin' || (isAuthor && ageMs < EDIT_WINDOW_MS);
+  const canDelete = window.currentUserRole === 'admin';
+
+  document.getElementById('sd-body').innerHTML = `
+    <div class="detail-section">
+      <div class="ds-label">Sesión</div>
+      <div class="detail-row"><span class="lbl">Piloto</span><span class="val">${escHtml(s.piloto)}</span></div>
+      <div class="detail-row"><span class="lbl"># Sesión</span><span class="val">${escHtml(s.num_sesion)}</span></div>
+      ${s.tipo ? `<div class="detail-row"><span class="lbl">Tipo</span><span class="val">${escHtml(s.tipo)}</span></div>` : ''}
+      <div class="detail-row"><span class="lbl">Pista</span><span class="val">${escHtml(s.pista || '—')}</span></div>
+      <div class="detail-row"><span class="lbl">Fecha</span><span class="val">${escHtml(fechaDisp)}</span></div>
+    </div>
+
+    <div class="detail-section">
+      <div class="ds-label">Llantas</div>
+      <div class="detail-row"><span class="lbl">Compuesto</span><span class="val">${escHtml(s.compuesto || '—')}</span></div>
+      <div class="detail-row"><span class="lbl">Vida</span><span class="val">${escHtml(s.vida ? (s.vida === '1' ? 'Nuevas (1)' : s.vida + ' ses.') : '—')}</span></div>
+      ${s.tempLlanta ? `<div class="detail-row"><span class="lbl">Temperatura</span><span class="val">${escHtml(s.tempLlanta)}</span></div>` : ''}
+    </div>
+
+    <div class="detail-section">
+      <div class="ds-label">Presiones FRÍO (psi)</div>
+      <div class="detail-press-grid">
+        <div class="detail-press-cell"><span class="pos">DI</span><span class="num">${fmtPress(f.DI)}</span></div>
+        <div class="detail-press-cell"><span class="pos">DD</span><span class="num">${fmtPress(f.DD)}</span></div>
+        <div class="detail-press-cell"><span class="pos">TI</span><span class="num">${fmtPress(f.TI)}</span></div>
+        <div class="detail-press-cell"><span class="pos">TD</span><span class="num">${fmtPress(f.TD)}</span></div>
+      </div>
+    </div>
+
+    <div class="detail-section">
+      <div class="ds-label">Presiones CALIENTE (psi)</div>
+      <div class="detail-press-grid">
+        <div class="detail-press-cell warm"><span class="pos">DI</span><span class="num">${fmtPress(c.DI)}</span></div>
+        <div class="detail-press-cell warm"><span class="pos">DD</span><span class="num">${fmtPress(c.DD)}</span></div>
+        <div class="detail-press-cell warm"><span class="pos">TI</span><span class="num">${fmtPress(c.TI)}</span></div>
+        <div class="detail-press-cell warm"><span class="pos">TD</span><span class="num">${fmtPress(c.TD)}</span></div>
+      </div>
+    </div>
+
+    ${s.obs ? `
+      <div class="detail-section">
+        <div class="ds-label">Observación</div>
+        <div class="detail-obs">${escHtml(s.obs)}</div>
+      </div>
+    ` : ''}
+
+    <div style="font-size:10px; color:#6B7280; font-family:monospace; text-align:right; margin-top:8px;">
+      Capturado por ${escHtml(s.author || '—')}${s.updatedBy ? ' · editado por ' + escHtml(s.updatedBy) : ''}
+    </div>
+  `;
+
+  document.getElementById('sd-edit-btn').style.display = canEdit ? '' : 'none';
+  document.getElementById('sd-delete-btn').style.display = canDelete ? '' : 'none';
+  document.getElementById('session-detail-modal').classList.add('open');
+}
+
+function closeSessionDetailModal() {
+  document.getElementById('session-detail-modal').classList.remove('open');
+  state.currentDetailSessionId = null;
+}
+
+function editCurrentSession() {
+  const id = state.currentDetailSessionId;
+  if (!id) return;
+  const s = state.sessions.find(x => x.id === id);
+  if (!s) return;
+  // Load data into the form
+  state.editingSessionId = id;
+  document.getElementById('piloto').value = s.piloto || '';
+  document.getElementById('num_sesion').value = s.num_sesion || 'S1';
+  document.getElementById('pista').value = s.pista || '';
+  document.getElementById('compuesto').value = s.compuesto || '';
+  document.getElementById('vida').value = s.vida || '';
+  document.getElementById('obs').value = s.obs || '';
+  if (document.getElementById('temp_llanta')) document.getElementById('temp_llanta').value = s.tempLlanta || '';
+  // Set tipo pill
+  document.querySelectorAll('.pills .pill').forEach(p => p.classList.remove('active'));
+  if (s.tipo) {
+    const pill = document.querySelector(`.pills .pill[data-value="${s.tipo}"]`);
+    if (pill) pill.classList.add('active');
+  }
+  // Set pressures
+  state.pressures = JSON.parse(JSON.stringify(s.pressures || { frio: {}, caliente: {} }));
+  renderTires();
+  closeSessionDetailModal();
+  setTab('new');
+  // Visual cue
+  const saveBtn = document.getElementById('btn-save-session');
+  if (saveBtn) saveBtn.textContent = '💾 Actualizar sesión';
+  showToast('Editando sesión — los cambios se guardarán al presionar "Actualizar sesión"');
+}
+
+async function deleteCurrentSession() {
+  const id = state.currentDetailSessionId;
+  if (!id) return;
+  if (window.currentUserRole !== 'admin') {
+    showToast('Solo admin puede eliminar', 'warning');
+    return;
+  }
+  if (!confirm('¿Eliminar esta sesión? Esta acción no se puede deshacer.')) return;
+  try {
+    await window.firebaseDeleteDoc(sessionDoc(id));
+    closeSessionDetailModal();
+    showToast('✓ Sesión eliminada');
+  } catch (e) {
+    console.error('[Presiones] delete session failed:', e);
+    showToast('Error: ' + e.message);
+  }
+}
+
+// ============================================================
+// COPY FORMATS
+// ============================================================
+function copySessionAsWhatsApp() {
+  const s = state.sessions.find(x => x.id === state.currentDetailSessionId);
+  if (!s) return;
+  const f = s.pressures?.frio || {};
+  const c = s.pressures?.caliente || {};
+  const vidaFmt = s.vida ? (s.vida === '1' ? 'Nuevas (1)' : s.vida + ' ses.') : '—';
+  const fmt = v => (v == null || v === '') ? '—' : Number(v).toFixed(1);
+  let r = '';
+  r += '🛞 *LapKr · Presiones*\n';
+  r += '━━━━━━━━━━━━━━━━━\n';
+  r += (s.piloto || '—') + ' · ' + (s.num_sesion || '?') + ' ' + (s.tipo || '') + ' · ' + (s.hora || '') + '\n';
+  if (s.pista) r += '📍 ' + s.pista + '\n';
+  r += 'Llanta: ' + (s.compuesto || '—') + ' · ' + vidaFmt + '\n\n';
+  r += '*❄ FRÍO* (psi)\n';
+  r += '  DI ' + fmt(f.DI) + '   DD ' + fmt(f.DD) + '\n';
+  r += '  TI ' + fmt(f.TI) + '   TD ' + fmt(f.TD) + '\n\n';
+  r += '*🔥 CALIENTE* (psi)\n';
+  r += '  DI ' + fmt(c.DI) + '   DD ' + fmt(c.DD) + '\n';
+  r += '  TI ' + fmt(c.TI) + '   TD ' + fmt(c.TD) + '\n';
+  if (s.obs) r += '\n📝 ' + s.obs + '\n';
+  navigator.clipboard.writeText(r).then(() => showToast('✓ Copiado para WhatsApp')).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = r; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); showToast('✓ Copiado'); } catch (e) { showToast('No se pudo copiar'); }
+    document.body.removeChild(ta);
+  });
+}
+
+function copySessionAsClaude() {
+  const s = state.sessions.find(x => x.id === state.currentDetailSessionId);
+  if (!s) return;
+  const f = s.pressures?.frio || {};
+  const c = s.pressures?.caliente || {};
+  const fmt = v => (v == null || v === '') ? '—' : Number(v).toFixed(1);
+  const vidaFmt = s.vida ? (s.vida === '1' ? 'Nuevas (1 sesión)' : s.vida + ' sesiones') : '—';
+
+  // Compute delta promedio (caliente - frio)
+  const deltas = [];
+  TIRES.forEach(t => {
+    const cv = c[t], fv = f[t];
+    if (cv != null && fv != null && cv !== '' && fv !== '') {
+      deltas.push(Number(cv) - Number(fv));
+    }
+  });
+  const deltaAvg = deltas.length > 0
+    ? (deltas.reduce((a, b) => a + b, 0) / deltas.length).toFixed(2)
+    : '—';
+
+  // Detect asymmetry
+  const asymTexts = [];
+  if (f.DI != null && f.DD != null && Math.abs(Number(f.DI) - Number(f.DD)) >= ASYM_THRESHOLD) {
+    asymTexts.push(`FRÍO delantera ${Math.abs(Number(f.DI) - Number(f.DD)).toFixed(1)} psi`);
+  }
+  if (f.TI != null && f.TD != null && Math.abs(Number(f.TI) - Number(f.TD)) >= ASYM_THRESHOLD) {
+    asymTexts.push(`FRÍO trasera ${Math.abs(Number(f.TI) - Number(f.TD)).toFixed(1)} psi`);
+  }
+  if (c.DI != null && c.DD != null && Math.abs(Number(c.DI) - Number(c.DD)) >= ASYM_THRESHOLD) {
+    asymTexts.push(`CALIENTE delantera ${Math.abs(Number(c.DI) - Number(c.DD)).toFixed(1)} psi`);
+  }
+  if (c.TI != null && c.TD != null && Math.abs(Number(c.TI) - Number(c.TD)) >= ASYM_THRESHOLD) {
+    asymTexts.push(`CALIENTE trasera ${Math.abs(Number(c.TI) - Number(c.TD)).toFixed(1)} psi`);
+  }
+  const asymText = asymTexts.length > 0 ? asymTexts.join(', ') : 'ninguna';
+
+  let r = '';
+  r += 'Análisis de presiones · LapKr\n';
+  r += '─────────────────────────────\n';
+  r += `Piloto: ${s.piloto || '—'}\n`;
+  r += `Sesión: ${s.num_sesion || '?'}${s.tipo ? ' · ' + s.tipo : ''}\n`;
+  r += `Fecha: ${s.fecha || '—'}${s.hora ? ' · ' + s.hora : ''}\n`;
+  r += `Pista: ${s.pista || '—'}\n`;
+  r += `Llantas: ${s.compuesto || '—'} · ${vidaFmt}\n\n`;
+  r += 'PRESIONES FRÍO (psi)\n';
+  r += `  DI: ${fmt(f.DI)}    DD: ${fmt(f.DD)}\n`;
+  r += `  TI: ${fmt(f.TI)}    TD: ${fmt(f.TD)}\n\n`;
+  r += 'PRESIONES CALIENTE (psi)\n';
+  r += `  DI: ${fmt(c.DI)}    DD: ${fmt(c.DD)}\n`;
+  r += `  TI: ${fmt(c.TI)}    TD: ${fmt(c.TD)}\n\n`;
+  r += `Delta promedio: ${deltaAvg !== '—' ? '+' + deltaAvg : '—'} psi\n`;
+  r += `Asimetría detectada: ${asymText}\n`;
+  if (s.tempLlanta) r += `Temperatura de llanta: ${s.tempLlanta}\n`;
+  if (s.obs) r += `\nObservaciones del piloto: ${s.obs}\n`;
+
+  navigator.clipboard.writeText(r).then(() => showToast('🤖 Copiado para Claude')).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = r; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); showToast('✓ Copiado'); } catch (e) { showToast('No se pudo copiar'); }
+    document.body.removeChild(ta);
+  });
+}
+
+// ============================================================
 // EXPOSE FUNCTIONS FOR INLINE HANDLERS
 // ============================================================
 window.logout = logout;
@@ -1946,6 +2727,14 @@ window.openTeamModal = openTeamModal;
 window.closeTeamModal = closeTeamModal;
 window.addTeamMember = addTeamMember;
 window.removeTeamMember = removeTeamMember;
+window.setTab = setTab;
+window.renderHistory = renderHistory;
+window.openSessionDetail = openSessionDetail;
+window.closeSessionDetailModal = closeSessionDetailModal;
+window.editCurrentSession = editCurrentSession;
+window.deleteCurrentSession = deleteCurrentSession;
+window.copySessionAsWhatsApp = copySessionAsWhatsApp;
+window.copySessionAsClaude = copySessionAsClaude;
 
 // ============================================================
 // INIT — wait for Firebase, then auth
