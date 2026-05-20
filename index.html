@@ -421,10 +421,261 @@
     line-height: 1.5;
   }
   .help strong { color: #FFFFFF; }
+
+  /* ─────── Login overlay ─────── */
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  #login-overlay {
+    position: fixed; inset: 0;
+    background: linear-gradient(135deg, #0A0A0A, #0F172A);
+    z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px;
+  }
+  #login-overlay .box {
+    background: #141414; border: 1px solid #2D7FF9; border-radius: 16px;
+    padding: 40px 30px; max-width: 420px; width: 100%; text-align: center;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+  }
+  #login-overlay .brand { font-size: 38px; line-height: 1; margin-bottom: 4px; font-weight: 700; }
+  #login-overlay .brand .lap { color: #FFF; }
+  #login-overlay .brand .kr { color: #2D7FF9; }
+  #login-overlay .subtitle {
+    font-family: monospace; font-size: 10px; color: #94A3B8;
+    text-transform: uppercase; letter-spacing: 2px; margin-bottom: 28px;
+  }
+  #login-overlay p { color: #94A3B8; font-size: 13px; margin-bottom: 22px; line-height: 1.5; }
+  #google-signin-btn {
+    background: #FFF; color: #000; border: none; padding: 12px 24px;
+    border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 10px; width: 100%;
+    justify-content: center; font-family: inherit;
+  }
+  #login-error { color: #EF4444; font-size: 12px; margin-top: 16px; min-height: 18px; }
+  #login-spinner {
+    display: inline-block; width: 32px; height: 32px;
+    border: 3px solid #1E293B; border-top-color: #2D7FF9;
+    border-radius: 50%; animation: spin 0.8s linear infinite;
+  }
+  #login-unauthorized {
+    display: none; padding: 20px; background: rgba(239,68,68,0.1);
+    border: 1px solid #EF4444; border-radius: 8px; margin-top: 20px;
+  }
+  #login-unauthorized h3 { color: #EF4444; font-size: 16px; margin-bottom: 8px; }
+  #login-unauthorized p { color: #94A3B8; font-size: 12px; }
+
+  /* ─────── User bar ─────── */
+  .user-bar {
+    background: #111111; border: 1px solid #1E293B; border-radius: 8px;
+    padding: 8px 10px; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  }
+  .user-bar img { width: 26px; height: 26px; border-radius: 50%; }
+  .user-bar .name { flex: 1; font-size: 11px; color: #E5E7EB; font-weight: 500; min-width: 90px; }
+  .user-bar .name .role {
+    display: block; font-size: 9px; font-family: monospace;
+    color: #2D7FF9; text-transform: uppercase; letter-spacing: 1px; margin-top: 1px;
+  }
+  .user-bar button, .user-bar a.btn-link {
+    background: transparent; border: 1px solid #1E293B; color: #94A3B8;
+    padding: 5px 9px; border-radius: 5px; font-size: 10px; cursor: pointer;
+    font-family: inherit; text-decoration: none; display: inline-block;
+  }
+  .user-bar button:hover, .user-bar a.btn-link:hover { color: #FFF; border-color: #2D7FF9; }
+  .user-bar a.btn-dashboard {
+    border-color: #2D7FF9; color: #2D7FF9; font-weight: 600;
+  }
+  .user-bar a.btn-dashboard:hover { background: rgba(45,127,249,0.1); color: #FFF; }
+  .sync-pill {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 9px; color: #94A3B8; font-family: monospace;
+    padding: 3px 7px; background: #0A0A0A; border-radius: 10px;
+  }
+  .sync-pill .dot {
+    width: 6px; height: 6px; border-radius: 50%; background: #10B981;
+  }
+  .sync-pill.syncing .dot { background: #F59E0B; animation: pulse 1s infinite; }
+  .sync-pill.error .dot { background: #EF4444; }
+
+  /* ─────── Pending banner ─────── */
+  .pending-banner {
+    background: linear-gradient(135deg, rgba(245,158,11,0.15) 0%, rgba(245,158,11,0.05) 100%);
+    border: 1px solid #F59E0B; border-radius: 8px;
+    padding: 12px 14px; margin-bottom: 10px;
+    cursor: pointer;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .pending-banner .pb-icon { font-size: 20px; }
+  .pending-banner .pb-title { color: #F59E0B; font-weight: 600; font-size: 12px; }
+  .pending-banner .pb-sub { color: #94A3B8; font-size: 10px; margin-top: 2px; }
+  .pending-banner .pb-arrow { color: #F59E0B; font-size: 13px; }
+
+  /* ─────── Select with + button ─────── */
+  .select-with-add {
+    display: flex; gap: 6px; align-items: stretch;
+  }
+  .select-with-add select { flex: 1; }
+  .select-with-add .btn-add {
+    background: transparent; border: 1px solid #1E293B; color: #2D7FF9;
+    padding: 0 12px; border-radius: 6px; cursor: pointer;
+    font-family: inherit; font-size: 16px; font-weight: 600;
+    line-height: 1; min-width: 38px;
+  }
+  .select-with-add .btn-add:hover { border-color: #2D7FF9; background: rgba(45,127,249,0.1); }
+
+  /* ─────── Modal genérico (agregar/aprobaciones/equipo) ─────── */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.75);
+    z-index: 5000; display: none; align-items: center; justify-content: center;
+    padding: 16px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: #141414; border: 1px solid #1E293B; border-radius: 12px;
+    max-width: 440px; width: 100%; padding: 20px;
+    max-height: 90vh; overflow-y: auto;
+  }
+  .modal-box h2 {
+    color: #FFF; font-size: 16px; margin-bottom: 14px;
+  }
+  .modal-hint {
+    background: rgba(45,127,249,0.08); border: 1px solid rgba(45,127,249,0.3);
+    border-radius: 6px; padding: 8px 10px;
+    font-size: 11px; color: #94A3B8;
+    line-height: 1.5; margin-bottom: 14px;
+  }
+  .modal-box label {
+    display: block; font-size: 10px; color: #94A3B8;
+    text-transform: uppercase; letter-spacing: 1px;
+    margin-bottom: 5px; font-family: monospace;
+  }
+  .modal-box input[type="text"], .modal-box input[type="email"] {
+    width: 100%; padding: 9px 12px;
+    background: #0A0A0A; border: 1px solid #1E293B; color: #FFF;
+    border-radius: 6px; font-family: inherit; font-size: 13px;
+  }
+  .modal-box input:focus { outline: none; border-color: #2D7FF9; }
+  .modal-actions {
+    display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px;
+  }
+  .modal-btn {
+    background: #1E293B; color: #E5E7EB; border: 1px solid #334155;
+    padding: 9px 16px; border-radius: 6px; cursor: pointer;
+    font-family: inherit; font-size: 12px;
+  }
+  .modal-btn:hover { background: #334155; color: #FFF; }
+  .modal-btn.primary { background: #2D7FF9; color: #FFF; border-color: #2D7FF9; }
+  .modal-btn.primary:hover { background: #1E6BD8; }
+  .modal-btn.danger { color: #EF4444; border-color: rgba(239,68,68,0.3); background: transparent; }
+  .modal-btn.danger:hover { background: rgba(239,68,68,0.1); }
+  .modal-btn.small { padding: 6px 10px; font-size: 11px; }
+
+  /* Propuesta card */
+  .proposal-card {
+    background: #0A0A0A; border: 1px solid #1E293B;
+    border-left: 3px solid #F59E0B;
+    border-radius: 6px; padding: 10px 12px; margin-bottom: 8px;
+  }
+  .proposal-card .kind {
+    background: #F59E0B; color: #000;
+    font-size: 9px; padding: 2px 7px; border-radius: 8px;
+    font-weight: 700; text-transform: uppercase;
+  }
+  .proposal-card .val {
+    font-size: 14px; color: #FFF; font-weight: 600;
+    margin-top: 6px;
+  }
+  .proposal-card .meta {
+    font-size: 10px; color: #94A3B8; font-family: monospace;
+    margin-top: 4px;
+  }
+  .proposal-card .actions {
+    display: flex; gap: 6px; margin-top: 8px;
+  }
+
+  /* Team member row */
+  .team-row {
+    display: flex; align-items: center; gap: 8px;
+    background: #0A0A0A; border: 1px solid #1E293B;
+    border-radius: 6px; padding: 8px 10px; margin-bottom: 6px;
+  }
+  .team-row .info { flex: 1; min-width: 0; }
+  .team-row .info .nm { font-size: 12px; color: #E5E7EB; font-weight: 500; }
+  .team-row .info .em {
+    font-size: 10px; color: #94A3B8; font-family: monospace;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+
+  /* Numeric input for vida */
+  input[type="number"].vida-input {
+    width: 100%;
+    background: #1F2937;
+    border: 1px solid #334155;
+    color: #FFFFFF;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    -moz-appearance: textfield;
+  }
+  input[type="number"].vida-input:focus { outline: none; border-color: #2D7FF9; }
 </style>
 </head>
 <body>
-<div class="container">
+
+<!-- ─────── LOGIN OVERLAY ─────── -->
+<div id="login-overlay">
+  <div class="box">
+    <div class="brand"><span class="lap">Lap</span><span class="kr">Kr</span></div>
+    <div class="subtitle">PRESIONES</div>
+
+    <div id="login-loading" style="margin-bottom: 24px;">
+      <div id="login-spinner"></div>
+      <div style="margin-top: 12px; font-size: 12px; color: #94A3B8;">Cargando...</div>
+    </div>
+
+    <div id="login-buttons" style="display: none;">
+      <p>Inicia sesión para acceder a la captura de presiones del equipo LapKr.</p>
+      <button id="google-signin-btn">
+        <svg width="18" height="18" viewBox="0 0 18 18"><path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z" fill="#4285F4"/><path d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z" fill="#34A853"/><path d="M3.964 10.71c-.18-.54-.282-1.117-.282-1.71s.102-1.17.282-1.71V4.958H.957C.347 6.173 0 7.548 0 9s.348 2.827.957 4.042l3.007-2.332z" fill="#FBBC05"/><path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/></svg>
+        Continuar con Google
+      </button>
+      <div id="login-error"></div>
+    </div>
+
+    <div id="login-unauthorized">
+      <div style="font-size: 36px; margin-bottom: 8px;">🚫</div>
+      <h3>Acceso no autorizado</h3>
+      <p id="unauthorized-email"></p>
+      <p style="margin-top: 12px;">Contacta a Ricardo para que te agregue al equipo.</p>
+      <button onclick="window.firebaseSignOut().then(()=>location.reload())" style="margin-top: 16px; background: transparent; color: #94A3B8; border: 1px solid #1E293B; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 12px; font-family: inherit;">Cerrar sesión</button>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="app-container" style="display:none;">
+
+  <!-- ─────── USER BAR ─────── -->
+  <div class="user-bar">
+    <a href="https://lapkr.vercel.app/" class="btn-link btn-dashboard" title="Regresar al dashboard">← Dashboard</a>
+    <img id="user-photo" src="" alt="">
+    <div class="name">
+      <span id="user-name">—</span>
+      <span class="role" id="user-role">—</span>
+    </div>
+    <span class="sync-pill" id="sync-pill"><span class="dot"></span><span id="sync-text">Sincronizado</span></span>
+    <button id="team-mgmt-btn" onclick="openTeamModal()" style="display:none;">👥 Equipo</button>
+    <button onclick="logout()">⏏ Salir</button>
+  </div>
+
+  <!-- ─────── PENDING BANNER (admin only) ─────── -->
+  <div class="pending-banner" id="pending-banner" style="display:none;" onclick="openProposalsModal()">
+    <div class="pb-icon">📋</div>
+    <div style="flex:1;">
+      <div class="pb-title" id="pending-banner-title">Propuestas pendientes de aprobación</div>
+      <div class="pb-sub" id="pending-banner-sub">Toca para revisar</div>
+    </div>
+    <div class="pb-arrow">→</div>
+  </div>
 
   <div class="header">
     <div class="logo-text">
@@ -443,10 +694,12 @@
     <div class="row-2" style="margin-bottom: 10px;">
       <div>
         <label class="field-label">Piloto</label>
-        <select id="piloto">
-          <option value="Jeshua">Jeshua</option>
-          <option value="Ricardo">Ricardo</option>
-        </select>
+        <div class="select-with-add">
+          <select id="piloto">
+            <option value="">— sel —</option>
+          </select>
+          <button type="button" class="btn-add" onclick="openAddItemModal('piloto')" title="Agregar piloto">+</button>
+        </div>
       </div>
       <div>
         <label class="field-label"># Sesión</label>
@@ -478,25 +731,16 @@
     <div class="row-2">
       <div>
         <label class="field-label">Compuesto</label>
-        <select id="compuesto">
-          <option value="">— sel —</option>
-          <option value="SM2 Telmex">SM2 Telmex</option>
-          <option value="Evinco SK-M">Evinco SK-M</option>
-          <option value="MG Rojas">MG Rojas</option>
-          <option value="Vega Blancas">Vega Blancas</option>
-          <option value="Bridgestone">Bridgestone</option>
-          <option value="MG SW lluvia">MG SW lluvia</option>
-        </select>
+        <div class="select-with-add">
+          <select id="compuesto">
+            <option value="">— sel —</option>
+          </select>
+          <button type="button" class="btn-add" onclick="openAddItemModal('compuesto')" title="Agregar compuesto">+</button>
+        </div>
       </div>
       <div>
-        <label class="field-label">Vida</label>
-        <select id="vida">
-          <option value="">— sel —</option>
-          <option value="Nuevas">Nuevas</option>
-          <option value="2da">2da sesión</option>
-          <option value="3ra">3ra sesión</option>
-          <option value="≥4">≥4 sesiones</option>
-        </select>
+        <label class="field-label">Vida (sesiones)</label>
+        <input type="number" id="vida" class="vida-input" min="1" max="8" placeholder="1-8">
       </div>
     </div>
   </div>
@@ -645,8 +889,104 @@
   <button type="button" class="btn btn-primary" id="btn-send">📲 Enviar a Francisco</button>
 </div>
 
+<!-- ─────── ADD ITEM MODAL (piloto / compuesto) ─────── -->
+<div class="modal-overlay" id="add-item-modal" onclick="if(event.target===this)closeAddItemModal()">
+  <div class="modal-box">
+    <h2 id="add-item-title">Agregar</h2>
+    <div class="modal-hint" id="add-item-hint">
+      💡 Como admin, se agregará directamente. Como worker, queda como propuesta para que el admin apruebe.
+    </div>
+    <label>Nombre</label>
+    <input type="text" id="add-item-input" placeholder="" onkeydown="if(event.key==='Enter')submitAddItem()">
+    <div class="modal-actions">
+      <button class="modal-btn" onclick="closeAddItemModal()">Cancelar</button>
+      <button class="modal-btn primary" onclick="submitAddItem()" id="add-item-submit">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─────── PROPOSALS MODAL ─────── -->
+<div class="modal-overlay" id="proposals-modal" onclick="if(event.target===this)closeProposalsModal()">
+  <div class="modal-box" style="max-width:520px;">
+    <h2>📋 Propuestas pendientes</h2>
+    <div class="modal-hint" id="proposals-hint">
+      💡 Workers proponen pilotos / compuestos nuevos y el admin los aprueba o rechaza aquí.
+    </div>
+    <div id="proposals-list" style="max-height:60vh; overflow-y:auto; padding-right:4px;"></div>
+    <div class="modal-actions">
+      <button class="modal-btn" onclick="closeProposalsModal()">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─────── TEAM MODAL ─────── -->
+<div class="modal-overlay" id="team-modal" onclick="if(event.target===this)closeTeamModal()">
+  <div class="modal-box">
+    <h2>👥 Gestión de Equipo</h2>
+    <div class="modal-hint">
+      💡 <strong style="color:#2D7FF9">Equipo LapKr Presiones.</strong> Todos los miembros pueden registrar sesiones. Solo admin aprueba pilotos y compuestos nuevos.
+    </div>
+    <div style="background:#0A0A0A; border:1px solid #1E293B; border-radius:6px; padding:12px; margin-bottom:14px;">
+      <div style="font-family:monospace; font-size:9px; text-transform:uppercase; color:#94A3B8; margin-bottom:8px; letter-spacing:1.5px;">Agregar miembro</div>
+      <label>Email Google</label>
+      <input type="email" id="team-new-email" placeholder="francisco@gmail.com">
+      <div style="height:8px;"></div>
+      <label>Nombre</label>
+      <input type="text" id="team-new-name" placeholder="Francisco">
+      <div style="height:10px;"></div>
+      <button class="modal-btn primary" style="width:100%;" onclick="addTeamMember()">+ Agregar al equipo</button>
+    </div>
+    <div style="margin-bottom:6px; font-family:monospace; font-size:9px; text-transform:uppercase; color:#94A3B8; letter-spacing:1.5px;">Miembros actuales</div>
+    <div id="team-members-list"></div>
+    <div class="modal-actions">
+      <button class="modal-btn" onclick="closeTeamModal()">Cerrar</button>
+    </div>
+  </div>
+</div>
+
 <!-- Toast -->
 <div class="toast" id="toast">Reporte copiado</div>
+
+<!-- Firebase SDK -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+  import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+  import {
+    getFirestore, doc, setDoc, getDoc, onSnapshot,
+    collection, getDocs, deleteDoc, updateDoc, writeBatch, serverTimestamp
+  } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAwceX51t0F7W_Ur67f82tPCqdDB2sJq-s",
+    authDomain: "task-e5b55.firebaseapp.com",
+    projectId: "task-e5b55",
+    storageBucket: "task-e5b55.firebasestorage.app",
+    messagingSenderId: "514103833698",
+    appId: "1:514103833698:web:72a3f1c51a7a581e240d3b",
+    measurementId: "G-HFEED951Z5"
+  };
+  window.ADMIN_EMAIL = "ricrodsan37@gmail.com";
+
+  const app = initializeApp(firebaseConfig);
+  window.firebaseAuth = getAuth(app);
+  window.firebaseDb = getFirestore(app);
+  window.firebaseProvider = new GoogleAuthProvider();
+  window.firebaseSignIn = () => signInWithPopup(window.firebaseAuth, window.firebaseProvider);
+  window.firebaseSignOut = () => signOut(window.firebaseAuth);
+  window.firebaseDoc = doc;
+  window.firebaseSetDoc = setDoc;
+  window.firebaseGetDoc = getDoc;
+  window.firebaseUpdateDoc = updateDoc;
+  window.firebaseDeleteDoc = deleteDoc;
+  window.firebaseOnSnapshot = onSnapshot;
+  window.firebaseCollection = collection;
+  window.firebaseGetDocs = getDocs;
+  window.firebaseWriteBatch = writeBatch;
+  window.firebaseServerTimestamp = serverTimestamp;
+  window.firebaseOnAuthStateChanged = onAuthStateChanged;
+  window.firebaseReady = true;
+  window.dispatchEvent(new Event('firebase-ready'));
+</script>
 
 <script>
 // ============================================================
@@ -657,8 +997,30 @@ let state = {
   prevSession: null,
   currentMode: 'frio',
   currentTire: null,
-  currentInput: ''
+  currentInput: '',
+  // Remote data (synced from Firestore)
+  pilotos: [],          // [{id, nombre}]
+  compuestos: [],       // [{id, nombre}]
+  proposals: [],        // [{id, kind:'piloto'|'compuesto', value, proposedBy, proposedAt}]
+  team: {},             // { email: {name, addedAt} }
+  addItemKind: null     // 'piloto' or 'compuesto' when modal open
 };
+
+// Auth state
+window.currentUser = null;
+window.currentUserName = null;
+window.currentUserRole = null;
+window.workspaceOwnerId = null;
+
+const DEFAULT_PILOTOS = ['Jeshua', 'Ricardo'];
+const DEFAULT_COMPUESTOS = ['SM2 Telmex', 'Evinco SK-M', 'MG Rojas', 'Vega Blancas', 'Bridgestone', 'MG SW lluvia'];
+
+// Firestore unsubscribers
+let unsubsFb = [];
+// Maps mirroring snapshots
+let pilotosMap = {};
+let compuestosMap = {};
+let proposalsMap = {};
 
 const TIRES = ['DI', 'DD', 'TI', 'TD'];
 const TIRE_NAMES = {
@@ -980,7 +1342,8 @@ function buildReport() {
   const num = document.getElementById('num_sesion').value;
   const tipo = document.querySelector('.pills .pill.active')?.dataset.value || '?';
   const comp = document.getElementById('compuesto').value || '—';
-  const vida = document.getElementById('vida').value || '—';
+  const vidaRaw = document.getElementById('vida').value;
+  const vida = vidaRaw ? (vidaRaw === '1' ? 'Nuevas (1)' : vidaRaw + ' ses.') : '—';
   const obs = document.getElementById('obs').value;
   const now = new Date();
   const time = now.toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit' });
@@ -1105,11 +1468,493 @@ function saveAsLastSession() {
 }
 
 // ============================================================
-// INIT
+// FIREBASE: AUTH + SYNC
 // ============================================================
-loadPrevSession();
-loadDraft();
-renderTires();
+
+function setSyncStatus(status, text) {
+  const pill = document.getElementById('sync-pill');
+  if (!pill) return;
+  pill.className = 'sync-pill ' + (status || '');
+  document.getElementById('sync-text').textContent = text || 'Sincronizado';
+}
+
+function showUnauthorized(email) {
+  document.getElementById('login-loading').style.display = 'none';
+  document.getElementById('login-buttons').style.display = 'none';
+  document.getElementById('login-unauthorized').style.display = 'block';
+  document.getElementById('unauthorized-email').textContent = email;
+}
+
+function showApp() {
+  document.getElementById('login-overlay').style.display = 'none';
+  document.getElementById('app-container').style.display = '';
+}
+
+function logout() {
+  if (!confirm('¿Cerrar sesión?')) return;
+  unsubsFb.forEach(u => { try { u(); } catch(e) {} });
+  unsubsFb = [];
+  window.firebaseSignOut().then(() => location.reload());
+}
+
+function initAuthFlow() {
+  if (!window.firebaseAuth) return;
+  window.firebaseOnAuthStateChanged(window.firebaseAuth, async (user) => {
+    if (!user) {
+      document.getElementById('login-loading').style.display = 'none';
+      document.getElementById('login-buttons').style.display = 'block';
+      return;
+    }
+    const userEmail = (user.email || '').toLowerCase();
+    const adminEmail = (window.ADMIN_EMAIL || '').toLowerCase();
+    const isAdmin = userEmail === adminEmail;
+
+    if (isAdmin) {
+      window.currentUser = user;
+      window.currentUserRole = 'admin';
+      window.currentUserName = user.displayName || 'Admin';
+      window.workspaceOwnerId = user.uid;
+      await finishLogin(user);
+    } else {
+      try {
+        const wsRef = window.firebaseDoc(window.firebaseDb, 'lapkr-presiones', 'shared');
+        const snap = await window.firebaseGetDoc(wsRef);
+        if (!snap.exists()) {
+          showUnauthorized(userEmail + ' — admin no ha iniciado sesión aún');
+          return;
+        }
+        const data = snap.data();
+        window.workspaceOwnerId = data.ownerId;
+        const team = data.team || {};
+        const normalized = {};
+        Object.keys(team).forEach(k => normalized[k.toLowerCase()] = team[k]);
+        if (!normalized[userEmail]) {
+          showUnauthorized(userEmail);
+          return;
+        }
+        window.currentUser = user;
+        window.currentUserRole = 'member';
+        window.currentUserName = normalized[userEmail].name || user.displayName;
+        await finishLogin(user);
+      } catch (e) {
+        showUnauthorized(userEmail + ' — error: ' + e.message);
+      }
+    }
+  });
+
+  document.getElementById('google-signin-btn').addEventListener('click', async () => {
+    document.getElementById('login-error').textContent = '';
+    try { await window.firebaseSignIn(); }
+    catch (e) { document.getElementById('login-error').textContent = e.message; }
+  });
+}
+
+async function finishLogin(user) {
+  document.getElementById('user-photo').src = user.photoURL || '';
+  document.getElementById('user-name').textContent = window.currentUserName;
+  document.getElementById('user-role').textContent = window.currentUserRole === 'admin' ? 'Admin · LapKr' : 'Equipo · LapKr';
+  if (window.currentUserRole === 'admin') {
+    document.getElementById('team-mgmt-btn').style.display = '';
+  }
+  showApp();
+  setSyncStatus('syncing', 'Cargando...');
+  await subscribeToFirestore();
+  // After first sync, if admin and there are no pilotos/compuestos seeded yet, seed defaults
+  if (window.currentUserRole === 'admin' &&
+      Object.keys(pilotosMap).length === 0 &&
+      Object.keys(compuestosMap).length === 0) {
+    console.log('[Presiones] Seeding defaults');
+    await seedDefaults();
+  }
+  // Init the local UI (load last session from localStorage as fallback, then render tires)
+  loadPrevSession();
+  loadDraft();
+  renderTires();
+}
+
+function workspaceRef() {
+  return window.firebaseDoc(window.firebaseDb, 'lapkr-presiones', 'shared');
+}
+function pilotosCol() {
+  return window.firebaseCollection(window.firebaseDb, 'lapkr-presiones', 'shared', 'pilotos');
+}
+function compuestosCol() {
+  return window.firebaseCollection(window.firebaseDb, 'lapkr-presiones', 'shared', 'compuestos');
+}
+function proposalsCol() {
+  return window.firebaseCollection(window.firebaseDb, 'lapkr-presiones', 'shared', 'proposals');
+}
+function pilotoDoc(id) {
+  return window.firebaseDoc(window.firebaseDb, 'lapkr-presiones', 'shared', 'pilotos', id);
+}
+function compuestoDoc(id) {
+  return window.firebaseDoc(window.firebaseDb, 'lapkr-presiones', 'shared', 'compuestos', id);
+}
+function proposalDoc(id) {
+  return window.firebaseDoc(window.firebaseDb, 'lapkr-presiones', 'shared', 'proposals', id);
+}
+
+async function subscribeToFirestore() {
+  // Workspace doc (team)
+  const wsUnsub = window.firebaseOnSnapshot(workspaceRef(), (snap) => {
+    if (snap.exists()) {
+      const data = snap.data();
+      if (data.team) state.team = data.team;
+    }
+    setSyncStatus('', 'Sincronizado');
+  }, (err) => {
+    console.error('[Presiones] Workspace error:', err);
+    setSyncStatus('error', 'Error sync');
+  });
+  unsubsFb.push(wsUnsub);
+
+  // Pilotos
+  const pUnsub = window.firebaseOnSnapshot(pilotosCol(), (snap) => {
+    snap.docChanges().forEach(ch => {
+      const d = ch.doc.data();
+      if (ch.type === 'removed') delete pilotosMap[ch.doc.id];
+      else pilotosMap[ch.doc.id] = { ...d, id: ch.doc.id };
+    });
+    rebuildState();
+    refreshSelects();
+  }, (err) => console.error('[Presiones] Pilotos error:', err));
+  unsubsFb.push(pUnsub);
+
+  // Compuestos
+  const cUnsub = window.firebaseOnSnapshot(compuestosCol(), (snap) => {
+    snap.docChanges().forEach(ch => {
+      const d = ch.doc.data();
+      if (ch.type === 'removed') delete compuestosMap[ch.doc.id];
+      else compuestosMap[ch.doc.id] = { ...d, id: ch.doc.id };
+    });
+    rebuildState();
+    refreshSelects();
+  }, (err) => console.error('[Presiones] Compuestos error:', err));
+  unsubsFb.push(cUnsub);
+
+  // Proposals
+  const prUnsub = window.firebaseOnSnapshot(proposalsCol(), (snap) => {
+    snap.docChanges().forEach(ch => {
+      const d = ch.doc.data();
+      if (ch.type === 'removed') delete proposalsMap[ch.doc.id];
+      else proposalsMap[ch.doc.id] = { ...d, id: ch.doc.id };
+    });
+    rebuildState();
+    refreshPendingBanner();
+    // If proposals modal is open, refresh its list
+    if (document.getElementById('proposals-modal').classList.contains('open')) {
+      renderProposalsList();
+    }
+  }, (err) => console.error('[Presiones] Proposals error:', err));
+  unsubsFb.push(prUnsub);
+
+  // Wait briefly for first snapshots
+  await new Promise(r => setTimeout(r, 700));
+}
+
+function rebuildState() {
+  state.pilotos = Object.values(pilotosMap).sort((a, b) => (a.nombre || '').localeCompare(b.nombre || ''));
+  state.compuestos = Object.values(compuestosMap).sort((a, b) => (a.nombre || '').localeCompare(b.nombre || ''));
+  state.proposals = Object.values(proposalsMap).sort((a, b) => (b.proposedAt || '').localeCompare(a.proposedAt || ''));
+}
+
+async function seedDefaults() {
+  try {
+    setSyncStatus('syncing', 'Inicializando...');
+    // Ensure workspace doc exists with ownerId + empty team
+    const wsSnap = await window.firebaseGetDoc(workspaceRef());
+    if (!wsSnap.exists()) {
+      await window.firebaseSetDoc(workspaceRef(), {
+        ownerId: window.workspaceOwnerId,
+        team: {},
+        createdAt: new Date().toISOString()
+      });
+    }
+    const batch = window.firebaseWriteBatch(window.firebaseDb);
+    DEFAULT_PILOTOS.forEach((nombre, i) => {
+      const id = 'pi' + i + '_seed';
+      batch.set(pilotoDoc(id), { id, nombre });
+    });
+    DEFAULT_COMPUESTOS.forEach((nombre, i) => {
+      const id = 'cp' + i + '_seed';
+      batch.set(compuestoDoc(id), { id, nombre });
+    });
+    await batch.commit();
+    setSyncStatus('', 'Sincronizado');
+  } catch (e) {
+    console.error('[Presiones] Seed failed:', e);
+    setSyncStatus('error', 'Error sync');
+  }
+}
+
+function refreshSelects() {
+  const pilotoSel = document.getElementById('piloto');
+  const compSel = document.getElementById('compuesto');
+  if (pilotoSel) {
+    const prev = pilotoSel.value;
+    pilotoSel.innerHTML = '<option value="">— sel —</option>' +
+      state.pilotos.map(p => `<option value="${escAttr(p.nombre)}">${escHtml(p.nombre)}</option>`).join('');
+    if (prev && state.pilotos.find(p => p.nombre === prev)) pilotoSel.value = prev;
+  }
+  if (compSel) {
+    const prev = compSel.value;
+    compSel.innerHTML = '<option value="">— sel —</option>' +
+      state.compuestos.map(c => `<option value="${escAttr(c.nombre)}">${escHtml(c.nombre)}</option>`).join('');
+    if (prev && state.compuestos.find(c => c.nombre === prev)) compSel.value = prev;
+  }
+}
+
+function escHtml(s) {
+  if (s == null) return '';
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function escAttr(s) { return escHtml(s); }
+
+function refreshPendingBanner() {
+  const banner = document.getElementById('pending-banner');
+  if (!banner) return;
+  const isAdmin = window.currentUserRole === 'admin';
+  const count = state.proposals.length;
+  if (isAdmin && count > 0) {
+    banner.style.display = '';
+    document.getElementById('pending-banner-title').textContent = `${count} propuesta${count > 1 ? 's' : ''} pendiente${count > 1 ? 's' : ''} de tu aprobación`;
+    document.getElementById('pending-banner-sub').textContent =
+      `Propuestas por: ${[...new Set(state.proposals.map(p => p.proposedBy))].join(', ')}`;
+  } else if (!isAdmin && state.proposals.filter(p => p.proposedBy === (window.currentUserName || '')).length > 0) {
+    const mine = state.proposals.filter(p => p.proposedBy === (window.currentUserName || '')).length;
+    banner.style.display = '';
+    document.getElementById('pending-banner-title').textContent = `Tienes ${mine} propuesta${mine > 1 ? 's' : ''} esperando aprobación`;
+    document.getElementById('pending-banner-sub').textContent = 'Toca para revisar o cancelar';
+  } else {
+    banner.style.display = 'none';
+  }
+}
+
+// ============================================================
+// ADD ITEM MODAL (piloto / compuesto)
+// ============================================================
+function openAddItemModal(kind) {
+  state.addItemKind = kind;
+  const isAdmin = window.currentUserRole === 'admin';
+  document.getElementById('add-item-title').textContent = (isAdmin ? 'Agregar ' : 'Proponer ') + (kind === 'piloto' ? 'piloto' : 'compuesto');
+  document.getElementById('add-item-hint').innerHTML = isAdmin
+    ? '💡 Como admin, se agregará directamente para todo el equipo.'
+    : '💡 Como worker, esto queda como propuesta. El admin tendrá que aprobarla antes de que aparezca en el dropdown.';
+  document.getElementById('add-item-input').value = '';
+  document.getElementById('add-item-input').placeholder = kind === 'piloto' ? 'Ej: Francisco' : 'Ej: MG Yellow';
+  document.getElementById('add-item-submit').textContent = isAdmin ? 'Agregar' : '📋 Proponer';
+  document.getElementById('add-item-modal').classList.add('open');
+  setTimeout(() => document.getElementById('add-item-input').focus(), 50);
+}
+function closeAddItemModal() {
+  document.getElementById('add-item-modal').classList.remove('open');
+  state.addItemKind = null;
+}
+async function submitAddItem() {
+  const value = (document.getElementById('add-item-input').value || '').trim();
+  if (!value) { showToast('Falta nombre'); return; }
+  const kind = state.addItemKind;
+  if (!kind) return;
+  // Check duplicate (case-insensitive)
+  const existingList = kind === 'piloto' ? state.pilotos : state.compuestos;
+  if (existingList.find(x => (x.nombre || '').toLowerCase() === value.toLowerCase())) {
+    showToast('Ya existe: ' + value);
+    return;
+  }
+  // Check duplicate in pending proposals
+  if (state.proposals.find(p => p.kind === kind && (p.value || '').toLowerCase() === value.toLowerCase())) {
+    showToast('Ya hay una propuesta pendiente con ese nombre');
+    return;
+  }
+  const isAdmin = window.currentUserRole === 'admin';
+  try {
+    if (isAdmin) {
+      const id = (kind === 'piloto' ? 'pi' : 'cp') + Date.now() + '_' + Math.random().toString(36).substring(2, 6);
+      const ref = kind === 'piloto' ? pilotoDoc(id) : compuestoDoc(id);
+      await window.firebaseSetDoc(ref, { id, nombre: value });
+      showToast('✓ Agregado: ' + value);
+      // Auto-select it
+      setTimeout(() => {
+        const sel = document.getElementById(kind === 'piloto' ? 'piloto' : 'compuesto');
+        if (sel) sel.value = value;
+        autoSave();
+      }, 300);
+    } else {
+      const id = 'pr' + Date.now() + '_' + Math.random().toString(36).substring(2, 6);
+      await window.firebaseSetDoc(proposalDoc(id), {
+        id, kind, value,
+        proposedBy: window.currentUserName || 'Worker',
+        proposedAt: new Date().toISOString()
+      });
+      showToast('📋 Propuesta enviada, esperando aprobación');
+    }
+    closeAddItemModal();
+  } catch (e) {
+    console.error('[Presiones] addItem failed:', e);
+    showToast('Error: ' + e.message);
+  }
+}
+
+// ============================================================
+// PROPOSALS MODAL
+// ============================================================
+function openProposalsModal() {
+  document.getElementById('proposals-modal').classList.add('open');
+  renderProposalsList();
+}
+function closeProposalsModal() {
+  document.getElementById('proposals-modal').classList.remove('open');
+}
+function renderProposalsList() {
+  const cont = document.getElementById('proposals-list');
+  if (!cont) return;
+  if (state.proposals.length === 0) {
+    cont.innerHTML = '<div style="text-align:center; padding:30px; color:#6B7280; font-size:13px;">No hay propuestas pendientes</div>';
+    return;
+  }
+  const isAdmin = window.currentUserRole === 'admin';
+  const myName = window.currentUserName || '';
+  cont.innerHTML = state.proposals.map(p => {
+    const ts = new Date(p.proposedAt).toLocaleString('es-MX', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
+    const mine = p.proposedBy === myName;
+    return `
+      <div class="proposal-card">
+        <span class="kind">${escHtml(p.kind)}</span>
+        <div class="val">${escHtml(p.value)}</div>
+        <div class="meta">Propuesto por <strong style="color:#FFF;">${escHtml(p.proposedBy)}</strong> · ${escHtml(ts)}</div>
+        <div class="actions">
+          ${isAdmin ? `
+            <button class="modal-btn primary small" onclick="approveProposal('${escHtml(p.id)}')" style="flex:1;">✓ Aprobar</button>
+            <button class="modal-btn danger small" onclick="rejectProposal('${escHtml(p.id)}')" style="flex:1;">✗ Rechazar</button>
+          ` : (mine ? `
+            <button class="modal-btn small" onclick="cancelOwnProposal('${escHtml(p.id)}')" style="flex:1;">Cancelar mi propuesta</button>
+          ` : `<span style="font-size:11px; color:#94A3B8; font-style:italic;">Esperando aprobación...</span>`)}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+async function approveProposal(id) {
+  if (window.currentUserRole !== 'admin') return;
+  const p = state.proposals.find(x => x.id === id);
+  if (!p) return;
+  try {
+    const newId = (p.kind === 'piloto' ? 'pi' : 'cp') + Date.now() + '_' + Math.random().toString(36).substring(2, 6);
+    const ref = p.kind === 'piloto' ? pilotoDoc(newId) : compuestoDoc(newId);
+    await window.firebaseSetDoc(ref, { id: newId, nombre: p.value });
+    await window.firebaseDeleteDoc(proposalDoc(id));
+    showToast('✓ Aprobado: ' + p.value);
+  } catch (e) {
+    console.error('[Presiones] approve failed:', e);
+    showToast('Error: ' + e.message);
+  }
+}
+async function rejectProposal(id) {
+  if (window.currentUserRole !== 'admin') return;
+  if (!confirm('¿Rechazar esta propuesta?')) return;
+  try {
+    await window.firebaseDeleteDoc(proposalDoc(id));
+    showToast('Rechazado');
+  } catch (e) {
+    console.error('[Presiones] reject failed:', e);
+  }
+}
+async function cancelOwnProposal(id) {
+  if (!confirm('¿Cancelar tu propuesta?')) return;
+  try {
+    await window.firebaseDeleteDoc(proposalDoc(id));
+    showToast('Cancelado');
+  } catch (e) {
+    console.error('[Presiones] cancel failed:', e);
+  }
+}
+
+// ============================================================
+// TEAM MODAL (admin only)
+// ============================================================
+function openTeamModal() {
+  if (window.currentUserRole !== 'admin') return;
+  document.getElementById('team-new-email').value = '';
+  document.getElementById('team-new-name').value = '';
+  renderTeamList();
+  document.getElementById('team-modal').classList.add('open');
+}
+function closeTeamModal() {
+  document.getElementById('team-modal').classList.remove('open');
+}
+function renderTeamList() {
+  const cont = document.getElementById('team-members-list');
+  if (!cont) return;
+  const team = state.team || {};
+  const emails = Object.keys(team);
+  if (emails.length === 0) {
+    cont.innerHTML = '<div style="color:#6B7280; font-size:12px; padding:12px; text-align:center; border:1px dashed #1E293B; border-radius:6px;">Aún no has agregado a nadie</div>';
+    return;
+  }
+  cont.innerHTML = emails.map(email => `
+    <div class="team-row">
+      <div class="info">
+        <div class="nm">${escHtml(team[email].name)}</div>
+        <div class="em">${escHtml(email)}</div>
+      </div>
+      <button class="modal-btn danger small" onclick="removeTeamMember('${escHtml(email)}')">Quitar</button>
+    </div>
+  `).join('');
+}
+async function addTeamMember() {
+  const email = (document.getElementById('team-new-email').value || '').trim().toLowerCase();
+  const name = (document.getElementById('team-new-name').value || '').trim();
+  if (!email || !email.includes('@')) { showToast('Email inválido'); return; }
+  if (!name) { showToast('Falta nombre'); return; }
+  if (email === (window.ADMIN_EMAIL || '').toLowerCase()) { showToast('Tú ya eres admin'); return; }
+  state.team[email] = { name, addedAt: new Date().toISOString() };
+  try {
+    await window.firebaseSetDoc(workspaceRef(), { team: state.team, ownerId: window.workspaceOwnerId }, { merge: true });
+    document.getElementById('team-new-email').value = '';
+    document.getElementById('team-new-name').value = '';
+    renderTeamList();
+    showToast('Miembro agregado ✓');
+  } catch (e) {
+    showToast('Error: ' + e.message);
+  }
+}
+async function removeTeamMember(email) {
+  if (!confirm(`¿Quitar acceso a ${email}?`)) return;
+  delete state.team[email];
+  try {
+    await window.firebaseSetDoc(workspaceRef(), { team: state.team }, { merge: true });
+    renderTeamList();
+    showToast('Miembro removido');
+  } catch (e) {
+    showToast('Error: ' + e.message);
+  }
+}
+
+// ============================================================
+// EXPOSE FUNCTIONS FOR INLINE HANDLERS
+// ============================================================
+window.logout = logout;
+window.openAddItemModal = openAddItemModal;
+window.closeAddItemModal = closeAddItemModal;
+window.submitAddItem = submitAddItem;
+window.openProposalsModal = openProposalsModal;
+window.closeProposalsModal = closeProposalsModal;
+window.approveProposal = approveProposal;
+window.rejectProposal = rejectProposal;
+window.cancelOwnProposal = cancelOwnProposal;
+window.openTeamModal = openTeamModal;
+window.closeTeamModal = closeTeamModal;
+window.addTeamMember = addTeamMember;
+window.removeTeamMember = removeTeamMember;
+
+// ============================================================
+// INIT — wait for Firebase, then auth
+// ============================================================
+if (window.firebaseReady) {
+  initAuthFlow();
+} else {
+  window.addEventListener('firebase-ready', initAuthFlow);
+}
 </script>
 </body>
 </html>
